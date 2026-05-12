@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Read Article | Ohlone Publications</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/article.css" />
+
+    <!-- StPageFlip -->
+    <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script>
+
+    <!-- PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs" type="module"></script>
+</head>
+
+<body>
+<header class="site-header">
+    <nav class="navbar">
+        <a href="index.html">
+            <img src="images/Adobe%20Express%20-%20file.png" class="nav-logo" alt="Logo">
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="submissions.html">Submissions</a></li>
+            <li><a href="polling.html">Polling</a></li>
+            <li><a href="archive.html">Archive</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="reader-page">
+    <section class="reader-header">
+        <p class="section-kicker">ASOC Publications</p>
+        <h1 id="issue-title">Loading issue...</h1>
+        <p id="issue-description"></p>
+    </section>
+
+    <section class="reader-controls">
+        <button id="prev-page">Previous</button>
+        <span id="page-status">Page 1</span>
+        <button id="next-page">Next</button>
+    </section>
+
+    <section class="flipbook-section">
+        <div id="flipbook"></div>
+    </section>
+
+    <section class="reader-fallback">
+        <a id="open-pdf-link" href="#" target="_blank">
+            Open PDF Version
+        </a>
+    </section>
+</main>
+
+<script src="js/article-data.js"></script>
+<script src="js/article-reader.js" type="module"></script>
+</body>
+</html>
