@@ -108,8 +108,43 @@
         font-size: 0.9rem;
     }
 
+    .flipbook-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: visible;
+        min-height: 680px;
+        padding: 20px 0 40px;
+    }
+
     #flipbook {
-        width: 95vw;
-        height: 70vh;
+        width: 900px;
+        height: 600px;
+        position: relative;
+        margin: 0 auto;
+        overflow: visible;
+    }
+
+    .page {
+        width: 450px;
+        height: 600px;
+        background: white;
+        overflow: hidden;
+    }
+
+    .page img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+        background: white;
+    }
+
+    .cover-page {
+        background: white;
+    }
+
+    .inside-page {
+        background: white;
     }
 }

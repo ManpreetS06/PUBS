@@ -56,6 +56,14 @@ async function loadPDF(pdfPath) {
         const pageDiv = document.createElement("div");
         pageDiv.classList.add("page");
 
+        if (pageNumber === 1 || pageNumber === pdf.numPages) {
+            pageDiv.classList.add("cover-page");
+            pageDiv.setAttribute("data-density", "hard");
+        } else {
+            pageDiv.classList.add("inside-page");
+            pageDiv.setAttribute("data-density", "soft");
+        }
+
         const img = document.createElement("img");
         img.src = canvas.toDataURL("image/jpeg", 0.95);
         img.alt = `Page ${pageNumber} of ${issue.title}`;
@@ -70,19 +78,39 @@ async function loadPDF(pdfPath) {
         flipbookElement.appendChild(page);
     });
 
+    await waitForImages();
+
     createFlipbook();
+}
+
+function waitForImages() {
+    const images = flipbookElement.querySelectorAll("img");
+
+    const imagePromises = Array.from(images).map(img => {
+        if (img.complete) {
+            return Promise.resolve();
+        }
+
+        return new Promise(resolve => {
+            img.onload = resolve;
+            img.onerror = resolve;
+        });
+    });
+
+    return Promise.all(imagePromises);
 }
 
 function createFlipbook() {
     pageFlip = new St.PageFlip(flipbookElement, {
         width: 450,
         height: 600,
-        size: "stretch",
-        minWidth: 280,
-        maxWidth: 900,
-        minHeight: 400,
-        maxHeight: 1200,
+        size: "fixed",
         showCover: true,
+        drawShadow: true,
+        flippingTime: 800,
+        usePortrait: false,
+        autoSize: false,
+        maxShadowOpacity: 0.4,
         mobileScrollSupport: false
     });
 
