@@ -60,5 +60,21 @@ prevBtn.addEventListener("click", () => {
     resetAutoSlide();
 });
 
+cards.forEach((card) => {
+    card.addEventListener("click", () => {
+        if (!card.classList.contains("active")) {
+            return;
+        }
+
+        const issueKey = card.dataset.issue;
+
+        if (!issueKey) {
+            return;
+        }
+
+        window.location.href = `article.html?issue=${issueKey}`;
+    });
+});
+
 updateCarousel();
 startAutoSlide();

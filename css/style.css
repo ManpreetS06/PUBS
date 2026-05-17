@@ -358,6 +358,15 @@ body {
     pointer-events: none;
 }
 
+.carousel-card.active {
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.carousel-card.active:hover {
+    filter: brightness(1.05);
+}
+
 .carousel-card img {
     width: 100%;
     height: 100%;
